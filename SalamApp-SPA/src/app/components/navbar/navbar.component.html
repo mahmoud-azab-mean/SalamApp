@@ -1,0 +1,98 @@
+<nav class="nav-extended">
+  <div class="container">
+    <div class="nav-wrapper">
+      <a routerLink="['']" class="brand-logo"><img src="assets/images/logo.png"></a>
+      <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right">
+        <li class='dropdown-trigger dt2' data-target='dropdown2'>
+          <div class="notification">
+            <i class="material-icons">mail</i>
+            <span class="badge msgCount" *ngIf="count!==0">{{count}}</span>
+          </div>
+          <!-- Dropdown2 Structure -->
+          <ul id='dropdown2' class='dropdown-content col s12 collection'>
+            <li class="collection-item avatar" *ngFor="let message of messages ; let i = index"
+              [hidden]=" message.length===0 " (click)="markMessages(message[message.length-1]?.senderId)">
+              <img class="circle"
+                src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{chatList[i].receiverId.photoVersion}}/{{chatList[i].receiverId.photoId}}">
+              <span class="title">
+                {{message[message.length-1]?.senderName}}
+                <p class="secondary-content">
+                  {{calendarDate(message[message.length-1]?.createdAt)}}
+                </p>
+              </span>
+              <div class="time">
+                {{(message[message.length-1]?.body| slice:0:28)}}
+                <div class="secondary-content">
+                  <p *ngIf="message[message.length-1]?.isRead">
+                    <i class="material-icons icon">radio_button_checked</i>
+                  </p>
+                  <p *ngIf="!message[message.length-1]?.isRead">
+                    <i class="material-icons icon">radio_button_unchecked</i>
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="collection-item" *ngIf="count===0">
+              <p class="center">No Messages</p>
+            </li>
+            <li *ngIf="count!==0">
+              <button class="waves-effect btn mark-all" (click)="markAllMessages()">Mark
+                All As Read
+              </button>
+            </li>
+          </ul>
+        </li>
+        <!-- Dropdown Trigger -->
+        <li class='dropdown-trigger dt1' data-target='dropdown'>
+          <div class="notification">
+            <i class="material-icons">notifications</i>
+            <span class="badge" *ngIf="unreadNotifications.length>0">{{unreadNotifications.length}}</span>
+          </div>
+          <!-- Dropdown Structure -->
+          <ul id='dropdown' class='dropdown-content col s12 collection'>
+            <li class="collection-item avatar" *ngFor="let notification of notifications">
+              <img class="circle"
+                src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{notification.senderId.photoVersion}}/{{notification.senderId.photoId}}">
+              <span class="title"
+                [ngStyle]="{'font-weight': notification.read?'normal':'bold'}">{{notification.action}}</span>
+              <p class="time">{{timeAgo(notification.created)}}</p>
+            </li>
+            <li class="collection-item" *ngIf="notifications.length==0">
+              <p class="center">No Notifications</p>
+            </li>
+            <li>
+              <button class="waves-effect btn mark-all" (click)="markAllAsRead()">
+                Mark All As Read
+              </button>
+            </li>
+          </ul>
+        </li>
+        <li class="hide-on-med-and-down">
+          <a class="logout waves-effect" (click)="logOut()">
+            <i class="material-icons left ">power_settings_new</i>
+            LOGOUT</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="nav-content">
+      <div class="nav-div">
+        <img class="circle responsive-img animated fadeIn" *ngIf="photoUrl" src="{{photoUrl}}">
+      </div>
+      <h1 *ngIf="photoUrl" class="profile-name">{{user.username}}</h1>
+    </div>
+  </div>
+</nav>
+<ul id="mobile" class="sidenav">
+  <li class="side">
+    <img class="circle responsive-img animated fadeIn" *ngIf="photoUrl" src="{{photoUrl}}">
+    <h1 class="profile-name">{{user.username}}</h1>
+  </li>
+
+  <li class="side-footer">
+    <a class="logout waves-effect" (click)="logOut()"><i class="material-icons center">power_settings_new</i>
+      LOGOUT</a>
+  </li>
+
+</ul>

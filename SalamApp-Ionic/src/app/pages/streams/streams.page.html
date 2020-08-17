@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-segment value="streams" [(ngModel)]="posts">
+      <ion-segment-button value="streams">
+        <ion-label>Streams</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="top">
+        <ion-label>Top Streams</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="posts==='streams'" scrollbar="{{customStyle}}">
+  <ion-list>
+    <ion-item lines="none" *ngFor="let post of streams">
+      <ion-card class="card">
+        <ion-item lines="none">
+          <ion-avatar class="ion-no-margin" slot="start">
+            <img
+              src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{post.user.photoVersion}}/{{post.user.photoId}}" />
+          </ion-avatar>
+          <ion-label class="info">
+            <p class="title">{{post.username}}</p>
+            <h6 class="time">{{timeAgo(post.created)}} @ {{post.user.country}}</h6>
+          </ion-label>
+        </ion-item>
+        <img *ngIf="post.photoId"
+          src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{post.photoVersion}}/{{post.photoId}}" />
+
+        <ion-card-content class="content" *ngIf="post.photoId">
+          {{post.post}}
+        </ion-card-content>
+        <p class="post-title" *ngIf="!post.photoId">{{post.post}}</p>
+        <ion-footer>
+          <ion-row>
+            <ion-col class="clickable" center text-center>
+              <ion-icon class="like-icon" name="thumbs-up-outline" (click)="likePost(post)"
+                [ngClass]="(!isUserInLikes(post.likes,user.username))?'notLiked':'liked'"></ion-icon>
+              <span class="icon-span">{{post.totalLikes}} Likes</span>
+            </ion-col>
+            <ion-col class="clickable" center text-center>
+              <ion-icon class="comment-icon" name="chatbox-ellipses-outline"
+                [ngClass]="(!isUserInLikes(post.comments,user.username))?'notLiked':'liked'"
+                (click)="openCommentBox(post)"></ion-icon>
+              <span class="icon-span">{{post.comments.length}} Comments</span>
+            </ion-col>
+          </ion-row>
+        </ion-footer>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+  <ion-button color="favorite1" (click)="logout()" expand="block">
+    logout
+  </ion-button>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button color="favorite1" size="small" (click)="presentModal()">
+      <ion-icon color="light" name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+<ion-content *ngIf="posts==='top'" scrollbar="{{customStyle}}">
+  <ion-list>
+    <ion-item lines="none" *ngFor="let post of topStreams">
+      <ion-card class="card">
+        <ion-item lines="none">
+          <ion-avatar class="ion-no-margin" slot="start">
+            <img
+              src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{post.user.photoVersion}}/{{post.user.photoId}}" />
+          </ion-avatar>
+          <ion-label class="info">
+            <p class="title">{{post.username}}</p>
+            <h6 class="time">{{timeAgo(post.created)}} @ {{post.user.country}}</h6>
+          </ion-label>
+        </ion-item>
+        <img *ngIf="post.photoId"
+          src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{post.photoVersion}}/{{post.photoId}}" />
+
+        <ion-card-content class="content" *ngIf="post.photoId">
+          {{post.post}}
+        </ion-card-content>
+        <p class="post-title" *ngIf="!post.photoId">{{post.post}}</p>
+        <ion-footer>
+          <ion-row>
+            <ion-col class="clickable" center text-center>
+              <ion-icon class="like-icon" name="thumbs-up-outline" (click)="likePost(post)"
+                [ngClass]="(!isUserInLikes(post.likes,user.username))?'notLiked':'liked'"></ion-icon>
+              <span class="icon-span">{{post.totalLikes}} Likes</span>
+            </ion-col>
+            <ion-col class="clickable" center text-center>
+              <ion-icon class="comment-icon" name="chatbox-ellipses-outline"
+                [ngClass]="(!isUserInLikes(post.comments,user.username))?'notLiked':'liked'"
+                (click)="openCommentBox(post)"></ion-icon>
+              <span class="icon-span">{{post.comments.length}} Comments</span>
+            </ion-col>
+          </ion-row>
+        </ion-footer>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+  <ion-button color="favorite1" (click)="logout()" expand="block">
+    logout
+  </ion-button>
+</ion-content>

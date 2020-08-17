@@ -1,0 +1,41 @@
+<div>
+  <app-navbar></app-navbar>
+  <div class="container-fluid" style="margin-top: 10px">
+    <div class="row">
+      <div class="col s12 m4 l3">
+        <app-side></app-side>
+      </div>
+      <div class="col s12 m8 l9">
+        <div class="row" *ngIf="notifications.length>0">
+          <p class="col s12 m9 right-align">
+            <span class="mark-all">Mark All As Read</span>
+            <i class="material-icons right" (click)="markAllAsRead()">done_all</i>
+          </p>
+          <ul class="collection col s12 m9" *ngFor="let notification of notifications">
+            <li class="collection-item avatar">
+              <img class="circle"
+                src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{notification.senderId.photoVersion}}/{{notification.senderId.photoId}}">
+              <span class="title">{{notification.action}}</span>
+              <a class="secondary-content">
+                <i class="material-icons" *ngIf="!notification.read">radio_button_unchecked</i>
+                <i class="material-icons" *ngIf="notification.read">radio_button_checked</i>
+              </a>
+              <p class="time">{{timeAgo(notification.created)}}</p>
+              <div>
+                <i class="material-icons" (click)="markNotification(notification)" *ngIf="!notification.read">
+                  check
+                </i>
+                <i class="material-icons" (click)="deleteNotification(notification)">
+                  delete_forever
+                </i>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="row" *ngIf="notifications.length==0">
+          <h4 class="center">You have no notifications.</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

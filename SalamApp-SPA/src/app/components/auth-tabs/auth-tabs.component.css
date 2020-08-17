@@ -1,0 +1,37 @@
+.card {
+  margin-top: 1rem;
+}
+.card-panel {
+  margin: 0;
+}
+.bodyDiv {
+  height: 100vh;
+}
+.tabs a {
+  color: #00838f;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.tabs .active {
+  background: inherit !important;
+}
+
+.auth-content {
+  height: 430px !important;
+}
+
+.card-content {
+  padding : 0 15px;
+}
+.title{
+  text-align: center;
+ font-family: Anton;
+  color:#00838f
+}
+.logo{
+  text-align: center;
+}
+.brand-logo img{
+  width: 200px;
+}

@@ -1,0 +1,38 @@
+<ion-list>
+  <ion-item lines="none" *ngFor="let post of userPosts">
+    <ion-card class="card">
+      <ion-item lines="none">
+        <ion-avatar class="ion-no-margin" slot="start">
+          <img
+            src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{userData.photoVersion}}/{{userData.photoId}}" />
+        </ion-avatar>
+        <ion-label class="info">
+          <p class="title">{{post.postId.username}}</p>
+          <h6 class="time">{{timeAgo(post.postId.created)}} @ {{userData?.country}}</h6>
+        </ion-label>
+      </ion-item>
+      <img *ngIf="post.postId.photoId"
+        src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{post.postId.photoVersion}}/{{post.postId.photoId}}" />
+
+      <ion-card-content *ngIf="post.postId.photoId" class="content">
+        {{post.post}}
+      </ion-card-content>
+      <p class="post-title" *ngIf="!post.postId.photoId">{{post.post}} </p>
+      <ion-footer>
+        <ion-row>
+          <ion-col class="clickable" center text-center>
+            <ion-icon class="like-icon" name="thumbs-up-outline" (click)="likePost(post.postId)"
+              [ngClass]="(!isUserInLikes(post.postId.likes,currentUser?.username))?'notLiked':'liked'">
+            </ion-icon>
+            <span class="icon-span">{{post.postId.totalLikes}} likes</span>
+          </ion-col>
+          <ion-col [routerLink]="['/tabs/post',post.postId._id]" class="clickable" center text-center>
+            <ion-icon class="comment-icon" name="chatbox-ellipses-outline"
+              [ngClass]="(!isUserInLikes(post.postId.comments,currentUser?.username))?'notLiked':'liked'"></ion-icon>
+            <span class="icon-span">{{post.postId.comments.length}} comments</span>
+          </ion-col>
+        </ion-row>
+      </ion-footer>
+    </ion-card>
+  </ion-item>
+</ion-list>

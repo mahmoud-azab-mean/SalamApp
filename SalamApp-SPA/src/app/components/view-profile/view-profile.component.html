@@ -1,0 +1,145 @@
+<div class="animated fadeIn">
+  <app-navbar></app-navbar>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col s12 m5 l3">
+        <div class="center-align ">
+          <img *ngIf="userData?.photoId" class="responsive-img profile-image"
+            src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{userData?.photoVersion}}/{{userData?.photoId}}"
+            alt="">
+          <div class="profile">
+            <p class="title">{{userData?.username}}</p>
+            <p *ngIf="userData?.city" class="cityName">{{userData?.city}},{{userData?.country}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m7 l9">
+        <div class="row profile-div">
+          <div class="col s12">
+            <ul class="tabs tabs-fixed-width">
+              <li class="tab"><a class="active" href="#posts">Posts</a></li>
+              <li class="tab"><a href="#following">Following</a></li>
+              <li class="tab"><a href="#followers">Followers</a></li>
+
+            </ul>
+          </div>
+
+          <!-- Posts Tab -->
+          <div id="posts" class="col s12">
+            <ul class="collection" *ngFor="let post of posts">
+              <li class="collection-item avatar">
+                <img
+                  src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{userData?.photoVersion}}/{{userData?.photoId}}"
+                  alt="" class="circle">
+                <span class="title">{{post?.postId.username}}</span>
+
+                <i data-target="modal" *ngIf="currentUser._id===userId"
+                  class="material-icons title edit waves-effect modal-trigger" (click)="openModal(post?.postId)">
+                  edit
+                </i>
+                <i *ngIf="currentUser._id===userId" class="material-icons delete waves-effect"
+                  (click)="deletePost(post?.postId._id)">
+                  delete
+                </i>
+                <p class="time">{{timeAgo(post?.postId.created)}}
+                  <span *ngIf="userData?.city">@ {{userData?.city}},{{userData?.country}}</span>
+                </p>
+              </li>
+              <div class="row">
+                <div class="col s12">
+                  <div class="card">
+                    <div class="card-image" *ngIf="post.postId.photoId">
+                      <img class="post-image"
+                        src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{post.postId.photoVersion}}/{{post.postId.photoId}}"
+                        alt="post image">
+                    </div>
+                    <p class="post-title" *ngIf="!post.postId.photoId">{{post?.postId.post}}</p>
+                    <div class="card-content post-text" *ngIf="post.postId.photoId">
+                      <p>{{post?.postId.post}}</p>
+                    </div>
+                    <div class="card-action">
+                      <i (click)="likePost(post?.postId)"
+                        [ngClass]="(!isUserInLikes(post?.postId.likes,currentUser?.username))?'notLiked':'liked'"
+                        class="material-icons icon">thumb_up</i>
+                      <span class="icon-span">{{post?.postId.totalLikes}}</span>
+                      <i [ngClass]="(!isUserInLikes(post?.postId.comments,currentUser?.username))?'notLiked':'liked'"
+                        (click)="openCommentBox(post?.postId)" class="material-icons icon">comment</i>
+                      <span class="icon-span">{{post?.postId.comments.length}}</span>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </ul>
+          </div>
+
+          <!-- Following Tab -->
+          <div id="following" class="col s12">
+            <div class="row" *ngIf="userFollowing.length>0">
+              <div class="col s6 m4 l3 card-div" *ngFor="let user of userFollowing">
+                <div class="card">
+                  <a [routerLink]="['/profile',user.userFollowed._id]">
+                    <div class="card-image img-div">
+                      <img class="circle responsive-img"
+                        src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{user.userFollowed.photoVersion}}/{{user.userFollowed.photoId}}">
+                    </div>
+                  </a>
+                  <div class="card-action title-div">
+                    <h3 class="card-title center-align title-name">
+                      {{user.userFollowed.username}}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" *ngIf="userFollowing.length==0">
+              <h4 class="center">This user don't follow any other user</h4>
+            </div>
+          </div>
+
+          <!-- Followers Tab -->
+          <div id="followers" class="col s12">
+            <div class="row" *ngIf="userFollowers.length>0">
+              <div class="col s6 m4 l3 card-div" *ngFor="let user of userFollowers">
+                <div class="card">
+                  <a [routerLink]="['/profile',user.follower._id]">
+                    <div class="card-image img-div">
+                      <img class="circle responsive-img"
+                        src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{user.follower.photoVersion}}/{{user.follower.photoId}}">
+                    </div>
+                  </a>
+                  <div class="card-action title-div">
+                    <h3 class="card-title center-align title-name">
+                      {{user.follower.username}}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" *ngIf="userFollowers.length==0">
+              <h4 class="center">No one Follow this user</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- modal structure -->
+<div class="container">
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h4>Post Edit</h4>
+      <form novalidate>
+        <textarea name="post" *ngIf="post" [(ngModel)]="post.post" class="materialize-textarea"></textarea>
+        <div class="modal-footer">
+          <button class="btn waves-effect cyan darken-3" (click)="closeModal()">Cancel</button>&nbsp;
+          <button class="btn waves-effect cyan darken-3" (click)="editPost()">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

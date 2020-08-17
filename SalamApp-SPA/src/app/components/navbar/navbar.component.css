@@ -1,0 +1,188 @@
+nav {
+  background-color: #00838f;
+}
+
+.sidenav {
+  background-color: #443941;
+}
+
+.sidenav li {
+  background-color: #3ab8c3;
+}
+
+.material-icons {
+  color: #ffffff !important;
+}
+
+.brand-logo img {
+  width: 160px;
+  margin-top: -5px;
+}
+
+.logout {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  margin-top: -5px;
+}
+
+.nav-content {
+  height: 235px;
+}
+
+.nav-div {
+  width: 300px;
+  height: auto;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.nav-div img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  margin: 20px auto 0 auto;
+}
+
+.profile-name {
+  color: #fff;
+  font-size: 40px;
+  font-family: anton;
+  text-align: center;
+  margin: 5px auto 0 auto;
+}
+
+.side {
+  width: 300px;
+  height: auto;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.side img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 10px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  margin-top: 24px;
+}
+
+.side .profile-name {
+  color: #fff;
+  font-size: 35px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.side .logout {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0 auto;
+}
+
+.side-footer {
+  padding-top: 10px;
+}
+
+.side-footer .material-icons {
+  margin: 0 5px;
+}
+
+.notification {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  margin-right: 13px;
+}
+
+.notification .badge {
+  position: absolute;
+  top: 7px;
+  padding: 1px 4px;
+  color: #ff48b7;
+  font-family: Impact;
+  font-size: 16px;
+  left: -13px;
+  text-shadow: 0px 1px 0px #ffffff,
+    0 0 2px #ffffff,
+    0 0 3px #ffffff;
+}
+
+.msgCount {
+  left: -7px !important;
+}
+
+.dropdown-content {
+  top: 45px !important;
+  min-width: 340px;
+  max-height: 320px;
+  overflow-y: scroll;
+  white-space: nowrap;
+}
+
+.title {
+  color: #00838f;
+}
+
+.time {
+  font-size: 16px;
+  color: #666565;
+  margin: -11px 20px !important;
+}
+
+li img.circle {
+  left: 6px !important;
+  top: 20px !important;
+}
+
+.collection .collection-item.avatar {
+  padding-left: 38px !important;
+}
+
+.collection .collection-item {
+  padding: 3px 20px !important;
+}
+
+.mark-all {
+  background-color: #00838f;
+  width: 90%;
+  min-height: 104%;
+  font-size: 18px;
+  top: 7px;
+  left: 16px;
+}
+
+.mark-all:hover {
+  background-color: #00acc1;
+}
+
+#dropdown {
+  left: -272px !important;
+  position: absolute;
+}
+
+#dropdown2 {
+  left: -319px !important;
+  position: absolute;
+}
+
+.dt2 {
+  margin-right: 10px;
+}
+
+.right {
+  position: relative !important;
+}
+
+.icon {
+  color: #00838f !important;
+  cursor: auto;
+  position: relative;
+  top: 12px;
+}

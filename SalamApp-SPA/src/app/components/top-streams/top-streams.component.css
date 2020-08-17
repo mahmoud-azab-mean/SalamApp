@@ -1,0 +1,49 @@
+.title {
+  font-weight: bold;
+  color: #00838f;
+}
+
+.time {
+  font-size: 14px;
+  color: #666565;
+}
+
+.post-text {
+  padding: 15px 5px !important;
+}
+
+.icon-Span {
+  font-size: 22px;
+  margin-right: 10px;
+}
+
+.material-icons {
+  display: inline-flex;
+  vertical-align: top;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.liked {
+  color: #00838f;
+}
+
+.card-action {
+  border: none !important;
+  padding-top: 0 !important;
+  margin-left: -25px !important;
+}
+
+.collection {
+  border: none !important;
+  margin: -20px 0;
+}
+
+.avatar {
+  margin-left: -12px !important;
+  padding-left: 65px !important;
+}
+
+.post-image {
+  margin-top: -26px;
+}

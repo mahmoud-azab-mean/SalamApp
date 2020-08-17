@@ -1,0 +1,52 @@
+.img-upload {
+  margin-top: -8px;
+  margin-bottom: -13px;
+  border-radius: 10px;
+  border: solid 5px #00838f;
+}
+
+.select-photo {
+  font-size: 20px;
+  min-width: 270px;
+  background-color: #00838f;
+  position: relative;
+  top: 20px;
+}
+
+.select-photo:hover,
+.photo-upload:hover {
+  background-color: #00acc1;
+}
+
+.photo-upload {
+  font-size: 20px;
+  min-width: 270px;
+  background-color: #00838f;
+  position: relative;
+  top: 0;
+}
+
+.photos-div {
+  position: relative;
+  right: 10px;
+  top: 25px;
+}
+
+.del-btn {
+  position: relative;
+  min-width: 92px;
+  top: -9px;
+}
+
+.prof-btn {
+  position: relative;
+  min-width: 92px;
+  top: -9px;
+}
+
+.preloader-wrapper {
+  margin-bottom: 74px;
+  margin-right: -61px;
+  top: 4px;
+  right: 153px;
+}

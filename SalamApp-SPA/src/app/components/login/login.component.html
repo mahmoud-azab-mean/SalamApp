@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col s10 offset-s1">
+          <div class="progress light-blue" *ngIf="showPreloader">
+            <div class="indeterminate cyan darken-3"></div>
+          </div>
+            <h4 class="title">Login</h4>
+            <h6 class="center-align red-text text-darken-4">{{errorMessage}}</h6>
+            <form [formGroup]="loginForm" class="col s12" novalidate (ngSubmit) = "loginUser()">
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="text" formControlName="username">
+          <label>User Name</label>
+          <span class="red-text text-darken-4"
+            *ngIf="!loginForm.controls['username'].valid && loginForm.controls['username'].touched">Username is required</span>
+        </div>
+     </div>
+          <div class="row">
+        <div class="input-field col s12">
+          <input  type="password" formControlName="password">
+          <label>Password</label>
+          <span class="red-text text-darken-4"
+            *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched">Password is required</span>
+        </div>
+      </div>
+      <button class="btn waves-effect" [disabled]="!loginForm.valid">Login</button>
+    </form>
+        </div>
+    </div>
+</div>

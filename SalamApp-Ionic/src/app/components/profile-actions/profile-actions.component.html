@@ -1,0 +1,20 @@
+  <ion-item lines="none" *ngIf="!isFollowing">
+    <ion-button (click)="follow()" color="favorite1" expand="block">
+      Follow
+    </ion-button>
+  </ion-item>
+  <ion-item lines="none" *ngIf="isFollowing">
+    <ion-button (click)="unFollow()" color="favorite1" expand="block">
+      UnFollow
+    </ion-button>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-button (click)="onClick()" color="favorite1" expand="block">
+      Poke
+    </ion-button>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-button (click)="onClick()" color="favorite1" expand="block">
+      Block
+    </ion-button>
+  </ion-item>

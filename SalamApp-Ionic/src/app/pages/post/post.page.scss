@@ -1,0 +1,61 @@
+ion-title {
+    position: relative;
+    top: 18px;
+}
+
+.send-btn {
+    float: right;
+    position: relative;
+    top: -11px;
+    right: 11px;
+}
+
+.send-icon {
+    padding-left: 5px;
+}
+
+//content
+ion-content {
+    --background: #d0e7f3;
+}
+
+ion-textarea {
+    margin-top: -15px;
+    font-weight: bold;
+}
+
+.post-content {
+    background-color: #d0e7f3;
+    color: var(--ion-color-favorite3);
+    position: relative;
+    top: 15px;
+    padding: 10px;
+    line-height: 1.4;
+    font-size: 18px;
+}
+
+.container {
+    position: relative;
+}
+
+
+.md {
+    .post-photo {
+        position: absolute;
+        top: 2.4em;
+        left: 1.75em;
+        width: 81%;
+        border-radius: 5%;
+    }
+
+}
+
+.ios {
+    .post-photo {
+        position: absolute;
+        top: 2.9em;
+        left: 1.75em;
+        width: 81%;
+        border-radius: 5%;
+    }
+}

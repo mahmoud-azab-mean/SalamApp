@@ -1,0 +1,94 @@
+<div>
+  <app-navbar></app-navbar>
+  <div class="container-fluid" style="margin-top: 10px">
+    <div class="row">
+      <div class="col s12 m4 l3">
+        <app-side></app-side>
+      </div>
+      <div class="col s12 m8 l9">
+        <div class="row center-align">
+          <div class="col s12">
+            <input accept=".png,.jpg,.jpeg,.gif" id="upload" #upload [hidden]="true" type='file'
+              (change)="onSelectFile($event);">
+            <div class="btn waves-effect select-photo" (click)="upload.click();">
+              <span><i class="material-icons center">image</i> Select
+                Photo</span>
+            </div>
+          </div>
+          <div class="col s12">
+            <img class="img-upload animated fadeIn" *ngIf="url" src="{{url}}" height="250px" width="250px">
+            <div class="preloader-wrapper big active" *ngIf="showPreloader">
+              <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                  <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+
+              <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                  <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+
+              <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                  <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+
+              <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                  <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s12">
+            <div *ngIf="url" class="btn waves-effect photo-upload" (click)="uploadPhoto()">
+              <span><i class="material-icons center">cloud_upload</i> Upload Photo</span>
+            </div>
+          </div>
+        </div>
+        <div class="row photos-div">
+          <div class="col s6 m4 l3" *ngFor="let photo of photos">
+            <div class="item-img-wrap center-align">
+              <img class="responsive-img" width="200" height="200"
+                src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{photo.photoVersion}}/{{photo.photoId}}">
+              <div class="row">
+                <button class="btn waves-effect prof-btn cyan darken-4" (click)="setAsProfile(photo)"> as
+                  profile</button>
+                <button class="btn waves-effect del-btn orange darken-4" (click)="deletePhoto(photo.photoId)">
+                  delete</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

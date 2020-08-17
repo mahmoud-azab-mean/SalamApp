@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{userData?.username}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goBack()"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="onClick()">
+        <ion-icon color="light" slot="icon-only" name="chatbubbles"></ion-icon>
+      </ion-button>
+      <ion-button (click)="presentPopover($event,userData)">
+        <ion-icon color="light" slot="icon-only" name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scrollbar="{{customStyle}}">
+
+  <div class="header-image" [style.backgroundImage]="headerImage"></div>
+  <div class="content-header">
+    <div class="circle-image">
+      <ion-img [src]="photoUrl"></ion-img>
+    </div>
+    <div class="info">
+      <p class="name">{{userData?.username}}</p>
+      <p class="country">{{userData?.country}}</p>
+    </div>
+  </div>
+  <div class="segments">
+    <ion-segment (ionChange)="segmentChanged($event)" mode="ios" [(ngModel)]="segment" value="posts">
+      <ion-segment-button value="posts">
+        Posts
+      </ion-segment-button>
+      <ion-segment-button value="followings">
+        Followings
+      </ion-segment-button>
+      <ion-segment-button value="followers">
+        Followers
+      </ion-segment-button>
+      <ion-segment-button value="photos">
+        Photos
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div class="segment-content">
+    <ion-list *ngIf="segment === 'posts'">
+      <app-posts [user]="userData"></app-posts>
+    </ion-list>
+    <ion-list class="ion-no-padding" *ngIf="segment === 'followings'">
+      <app-user-friends [friends]="userFriends"></app-user-friends>
+    </ion-list>
+    <ion-list class="ion-no-padding" *ngIf="segment === 'followers'">
+      <app-user-friends [friends]="userFriends"></app-user-friends>
+    </ion-list>
+    <ion-list class="ion-no-padding" *ngIf="segment === 'photos'">
+      <app-photos [user]="userData"></app-photos>
+    </ion-list>
+  </div>
+
+</ion-content>

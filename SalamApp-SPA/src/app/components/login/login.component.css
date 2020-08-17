@@ -1,0 +1,26 @@
+.btn {
+	float: right;
+	margin-right: 10px;
+	margin-top: 15px;
+	background-color: #00838f;
+	font-weight: 500;
+	font-size: 20px;
+}
+.title {
+	background-color: #00838f;
+	color: white;
+	padding: 8px;
+	margin-top: 0px;
+	font-weight: 700;
+	text-align: center;
+}
+form {
+	padding: 0px;
+	border-radius: 3px;
+	box-sizing: border-box;
+	margin: 0px 20px;
+}
+.input-field {
+	margin-bottom: 0px !important;
+	padding-bottom: 0px !important;
+}

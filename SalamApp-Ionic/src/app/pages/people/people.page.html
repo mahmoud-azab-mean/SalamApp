@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>people</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scrollbar="{{customStyle}}">
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let user of users" size-xs="6" size-sm="4" size-lg="3" size-xl="2">
+        <ion-card class="card">
+          <a (click)="viewProfile(user)">
+            <div class="img-div">
+              <img class="user-photo"
+                src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{user.photoVersion}}/{{user.photoId}}" />
+              <div class="online" *ngIf="checkIfOnline(user._id)"></div>
+            </div>
+
+          </a>
+          <div class="info">
+            <p class="title"> {{user.username}}</p>
+            <h6 class="country">{{user.country}}</h6>
+          </div>
+          <ion-row class="card-footer">
+            <ion-button size="small" class="icon-left" color="favorite1" (click)="followUser(user)"
+              *ngIf="!isFollowed(userFollowing,user._id)">
+              <ion-icon class="icon-size" slot="icon-only" name="heart"></ion-icon>
+            </ion-button>
+            <ion-button size="small" class="icon-left" color="favorite1" (click)="unFollowUser(user)"
+              *ngIf="isFollowed(userFollowing,user._id)">
+              <ion-icon class="icon-size" slot="icon-only" name="heart-dislike"></ion-icon>
+            </ion-button>
+            <ion-button size="small" class="icon-right" color="favorite1" (click)="onClick()">
+              <ion-icon class="icon-size" slot="icon-only" name="chatbubbles"></ion-icon>
+            </ion-button>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

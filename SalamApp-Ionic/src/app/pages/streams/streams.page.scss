@@ -1,0 +1,99 @@
+ ion-segment-button {
+     font-weight: bold;
+     --color: rgba(255, 255, 255, 0.8) !important;
+     --color-checked: var(--ion-color-favorite4);
+     --indicator-color: var(--ion-color-warning);
+     --indicator-height: 3px;
+ }
+
+ ion-item {
+     margin-bottom: -7px;
+     top: -10px;
+     left: -18px;
+     width: 112%;
+ }
+
+ .card {
+     padding: 5px;
+     margin-bottom: 10px;
+     width: -webkit-fill-available;
+ }
+
+ .info {
+     margin-left: 5px;
+     margin-bottom: 10px;
+ }
+
+ .title {
+     font-size: 18px !important;
+     font-weight: bold;
+     color: #00838f;
+ }
+
+ .time {
+     color: #6c6666d6;
+     font-size: 13px;
+     font-weight: bold;
+ }
+
+ .content {
+     padding: 3px;
+     font-size: 15px;
+     color: var(--ion-color-favorite1);
+     font-weight: 700;
+     line-height: 1.2;
+     margin-bottom: 5px;
+ }
+
+ .post-title {
+     text-align: center;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-bottom: 0.7rem;
+     margin-top: -1.7rem;
+     padding: 10px;
+     width: 100%;
+     height: 300px;
+     overflow: hidden;
+     color: white;
+     background-color: #00838f;
+     font-family: anton;
+     font-size: 24px;
+     letter-spacing: 1px;
+ }
+
+ .clickable {
+     cursor: pointer;
+     top: 5px;
+     left: 8px;
+ }
+
+ .like-icon {
+     font-size: 22px;
+     font-weight: bold;
+     margin-right: 5px;
+     color: var(--ion-color-favorite1);
+     position: relative;
+     bottom: 3px;
+ }
+
+ .comment-icon {
+     font-size: 22px;
+     font-weight: bold;
+     margin-right: 5px;
+     color: var(--ion-color-favorite1);
+ }
+
+ .icon-span {
+     bottom: 7px !important;
+     position: relative;
+     font-size: 13px;
+     font-weight: bold;
+     left: -3px;
+     color: var(--ion-color-favorite1);
+ }
+
+ .liked {
+     color: var(--ion-color-favorite5);
+ }

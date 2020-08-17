@@ -1,0 +1,32 @@
+<ul class="collection" *ngFor="let post of topPosts">
+  <li class="collection-item avatar">
+    <img src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{post.user.photoVersion}}/{{post.user.photoId}}"
+      alt="" class="circle">
+    <span class="title">{{post.username}}</span>
+    <p class="time">{{timeAgo(post.created)}} </p>
+  </li>
+  <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-image">
+          <img class="post-image" src="http://placeimg.com/600/400/nature" alt="post image">
+        </div>
+        <div class="card-content post-text">
+          <p>{{post.post}}</p>
+        </div>
+        <div class="card-action">
+          <i (click)="likePost(post)" [ngClass]="(!isUserInLikes(post.likes,user.username))?'notLiked':'liked'"
+            class="material-icons">thumb_up</i>
+          <span class="icon-span">{{post.totalLikes}}</span>
+          <i class="material-icons" [ngClass]="(!isUserInLikes(post.comments,user.username))?'notLiked':'liked'"
+            (click)="openCommentBox(post)">comment</i>
+          <span class="icon-span">{{post.comments.length}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ul>
+<div class="row" *ngIf="topPosts.length==0">
+  <h4 class="center">There are no top streams</h4>
+</div>

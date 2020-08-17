@@ -1,0 +1,8 @@
+{
+  "name": "SalamApp-Ionic",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

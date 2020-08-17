@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="dismiss()"></ion-back-button>
+    </ion-buttons>
+    <ion-title mode="md">Create Post</ion-title>
+    <ion-button class="send-btn" color="light" size="small" (click)="addPost()">
+      <ion-icon class="send-icon" color="favorite1" slot="icon-only" name="send"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-textarea class="post-content" auto-grow rows="7" placeholder="What's on your mind " [(ngModel)]="post">
+  </ion-textarea>
+  <div class="container">
+    <ion-button class="photo-btn" class="ion-margin" color="favorite1" (click)="selectPhoto()" expand="full"
+      shape="round">
+      <ion-icon slot="start" name="image"></ion-icon>
+      select photo
+    </ion-button>
+
+    <img class="post-photo" src="{{photoUrl}}" alt="">
+  </div>
+
+</ion-content>

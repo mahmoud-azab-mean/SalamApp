@@ -1,0 +1,67 @@
+<ion-grid *ngIf="isFollowing">
+  <ion-row>
+    <ion-col *ngFor="let user of followings" size-xs="6" size-sm="4" size-lg="3" size-xl="2">
+      <ion-card class="card">
+        <a (click)="viewProfile(user.userFollowed)">
+          <div class="img-div">
+            <img class="user-photo"
+              src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{user.userFollowed.photoVersion}}/{{user.userFollowed.photoId}}" />
+            <div class="online" *ngIf="checkIfOnline(user.userFollowed._id)"></div>
+          </div>
+
+        </a>
+        <div class="info">
+          <p class="title">{{user.userFollowed.username}}</p>
+          <h6 class="country">{{user.userFollowed.country}}</h6>
+        </div>
+        <ion-row class="card-footer">
+          <ion-button size="small" class="icon-left" color="favorite1"
+            *ngIf="!isFollowed(userFollowing,user.userFollowed._id)" (click)="followUser(user.userFollowed)">
+            <ion-icon class="icon-size" slot="icon-only" name="heart"></ion-icon>
+          </ion-button>
+          <ion-button size="small" class="icon-left" color="favorite1"
+            *ngIf="isFollowed(userFollowing,user.userFollowed._id)" (click)="unFollowUser(user.userFollowed)">
+            <ion-icon class="icon-size" slot="icon-only" name="heart-dislike"></ion-icon>
+          </ion-button>
+          <ion-button size="small" class="icon-right" color="favorite1" (click)="onClick()">
+            <ion-icon class="icon-size" slot="icon-only" name="chatbubbles"></ion-icon>
+          </ion-button>
+        </ion-row>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-grid *ngIf="isFollower">
+  <ion-row>
+    <ion-col *ngFor="let user of followers" size-xs="6" size-sm="4" size-lg="3" size-xl="2">
+      <ion-card class="card">
+        <a (click)="viewProfile(user.follower)">
+          <div class="img-div">
+            <img class="user-photo"
+              src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{user.follower.photoVersion}}/{{user.follower.photoId}}" />
+            <div class="online" *ngIf="checkIfOnline(user.follower._id)"></div>
+          </div>
+
+        </a>
+        <div class="info">
+          <p class="title">{{user.follower.username}}</p>
+          <h6 class="country">{{user.follower.country}}</h6>
+        </div>
+        <ion-row class="card-footer">
+          <ion-button size="small" class="icon-left" color="favorite1"
+            *ngIf="!isFollowed(userFollowing,user.follower._id)" (click)="followUser(user.follower)">
+            <ion-icon class="icon-size" slot="icon-only" name="heart"></ion-icon>
+          </ion-button>
+          <ion-button size="small" class="icon-left" color="favorite1"
+            *ngIf="isFollowed(userFollowing,user.follower._id)" (click)="unFollowUser(user.follower)">
+            <ion-icon class="icon-size" slot="icon-only" name="heart-dislike"></ion-icon>
+          </ion-button>
+          <ion-button size="small" class="icon-right" color="favorite1" (click)="onClick()">
+            <ion-icon class="icon-size" slot="icon-only" name="chatbubbles"></ion-icon>
+          </ion-button>
+        </ion-row>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

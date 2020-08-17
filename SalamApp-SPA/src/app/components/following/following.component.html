@@ -1,0 +1,36 @@
+<div>
+  <app-navbar></app-navbar>
+  <div class="container-fluid" style="margin-top: 10px">
+    <div class="row">
+      <div class="col s12 m4 l3">
+        <app-side></app-side>
+      </div>
+      <div class="col s12 m8 l9">
+        <div class="row" *ngIf="userFollowing.length>0">
+          <div class="col s6 m4 l3 card-div" *ngFor="let user of userFollowing">
+            <div class="card">
+              <a>
+                <div class="card-image img-div">
+                  <img class="circle responsive-img"
+                    src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{user.userFollowed.photoVersion}}/{{user.userFollowed.photoId}}">
+                </div>
+              </a>
+              <div class="card-action">
+                <h3 class="card-title center-align">
+                  {{user.userFollowed.username}}
+                </h3>
+
+
+                <a class="btn waves-effect btn-small" (click)="unFollowUser(user.userFollowed)">UnFollow</a>
+                <a><i class="material-icons right chat-icon">message</i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="userFollowing.length==0">
+          <h4 class="center">You are not following any one yet</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

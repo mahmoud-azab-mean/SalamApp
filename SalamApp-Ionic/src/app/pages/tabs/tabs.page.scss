@@ -1,0 +1,21 @@
+ion-tab-bar {
+    --background: rgb(0, 95, 103);
+}
+
+ion-tab-button {
+    --color: var(--ion-color-light);
+    --color-selected: var(--ion-color-warning);
+
+    ion-icon,
+    ion-label {
+        font-weight: bold;
+    }
+}
+
+ion-tab-button.tab-selected {
+
+    ion-icon,
+    ion-label {
+        font-weight: bolder;
+    }
+}

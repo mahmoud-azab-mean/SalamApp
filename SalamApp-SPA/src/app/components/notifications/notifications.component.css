@@ -1,0 +1,55 @@
+.title {
+  text-align: center;
+  font-size: 16px !important;
+  font-weight: bold;
+}
+
+.time {
+  margin-bottom: 10px !important;
+  color: #666565;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.mark-all {
+  text-align: center;
+  font-size: 15px !important;
+  font-weight: bold;
+  color: #00838f !important;
+}
+
+.collection {
+  padding-left: 0 !important;
+}
+
+.avatar {
+  padding-left: 60px !important;
+}
+
+.secondary-content {
+  top: 38px !important;
+}
+
+.circle {
+  left: 7px !important;
+}
+
+.right-align {
+  padding-right: 25px !important;
+  margin-bottom: 5px !important;
+}
+
+.material-icons {
+  color: #00838f !important;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.material-icons:hover {
+  color: #00acc1 !important;
+}
+
+.secondary-content .material-icons:hover {
+  color: #00838f !important;
+  cursor: auto;
+}

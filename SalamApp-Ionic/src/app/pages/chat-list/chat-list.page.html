@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Chats</ion-title>
+    <ion-avatar slot="start">
+      <img class="img"
+        src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{currentUser?.photoVersion}}/{{currentUser?.photoId}}">
+    </ion-avatar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scrollbar="{{customStyle}}">
+  <ion-list>
+    <ion-item lines="none" *ngFor="let chat of chatList">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <img class="user-image"
+              src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{chat?.receiverId.photoVersion}}/{{chat?.receiverId.photoId}}">
+          </ion-col>
+          <ion-col class="text" size="9">
+            <ion-row>
+              <ion-label class="info">
+                <p class="title">{{chat?.receiverId.username}}</p>
+                <p class="title date">
+                  {{calendarDate(chat.messageId.messages[chat.messageId.messages.length-1].createdAt) }}</p>
+              </ion-label>
+            </ion-row>
+            <ion-row class="msg-count">
+              <ion-col>
+                <span class="msg">
+                  <ion-icon color="favorite1" name="checkmark-done"></ion-icon>
+                  {{chat.messageId.messages[chat.messageId.messages.length-1].body | slice:0:10}}...
+                </span>
+              </ion-col>
+              <ion-col size="auto">
+                <p class="count" *ngIf="countUnreadMessages(chat.messageId.messages,chat.receiverId._id)>0">
+                  {{countUnreadMessages(chat.messageId.messages,chat.receiverId._id)}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+</ion-content>

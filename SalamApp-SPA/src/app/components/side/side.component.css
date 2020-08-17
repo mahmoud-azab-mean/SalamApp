@@ -1,0 +1,29 @@
+.collection{
+    min-width: 280px;
+  }
+.collection-header{
+    max-height: 44px;
+    text-align: center;
+    padding: 10px 15px 10px 4px !important;
+    font-weight: 500 !important;
+    
+}
+span{
+    color: #00838f !important;
+}
+.count{
+    margin-left: 5px;
+    color: #89919c !important;
+    font-weight: initial !important;
+}
+
+a{
+    color: #00838f !important;
+    font-weight: 600 !important;
+}
+.active a{
+    color: #ffffff !important;
+}
+.active {
+  background-color: #00838f !important;
+}

@@ -1,0 +1,157 @@
+.md {
+    ion-title {
+        margin-left: -20%;
+    }
+
+}
+
+ion-list {
+    margin-bottom: -20px;
+}
+
+ion-item {
+    margin-bottom: -7px;
+    top: -10px;
+    left: -18px;
+    width: 112%;
+}
+
+.card {
+    padding: 5px;
+    margin-bottom: 10px;
+    width: -webkit-fill-available;
+}
+
+.info {
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 18px !important;
+    font-weight: bold;
+    color: #00838f;
+}
+
+.time {
+    color: #6c6666d6;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.content {
+    padding: 3px;
+    font-size: 15px;
+    color: var(--ion-color-favorite1);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 5px;
+}
+
+.post-title {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.2rem;
+    margin-top: -1.7rem;
+    padding: 10px;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    color: white;
+    background-color: #00838f;
+    font-family: anton;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.container {
+    position: relative;
+    border-radius: 4px;
+    padding-top: 15px;
+    margin-bottom: 10px;
+    left: 10px;
+    max-width: 93%;
+}
+
+ion-textarea {
+    margin-top: -15px;
+    font-weight: bold;
+}
+
+.comment-content {
+    padding-right: 5px;
+    border-radius: 20px;
+    width: calc(100% - 30px);
+    background-color: #EBEDF0;
+    color: #343536;
+}
+
+.comment-button {
+    position: absolute;
+    bottom: 0;
+    right: -20px;
+
+    .icon {
+        margin-top: 2px;
+    }
+}
+
+
+.title {
+    font-size: 18px !important;
+    font-weight: bold;
+    color: #00838f;
+}
+
+.time {
+    color: #6c6666d6;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.post-avatar {
+    margin-right: 10px;
+    position: absolute;
+    top: -4px;
+    left: 15px;
+}
+
+.post-img {
+    margin-left: 4px;
+}
+
+.post-info {
+    margin-left: 45px;
+    margin-bottom: 17px;
+    border-radius: 20px;
+    background-color: #EBEDF0;
+    color: #343536;
+    font-weight: 600;
+    padding: 5px 10px;
+    width: auto;
+}
+
+.post-user {
+    font-size: 17px !important;
+    font-weight: bold;
+    color: #00838f;
+    margin-top: 3px;
+}
+
+.post-time {
+    color: #887e7ecf;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: -11px;
+    margin-bottom: 3px;
+}
+
+.post-comment {
+    padding-right: 5px;
+    border-radius: 20px;
+    width: calc(100% - 30px);
+    background-color: #EBEDF0;
+    color: #686a7d;
+}

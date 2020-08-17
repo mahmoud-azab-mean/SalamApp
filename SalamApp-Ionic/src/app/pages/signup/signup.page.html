@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>signup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="sign" padding>
+  <form #registerForm="ngForm" padding class="appForm adjust">
+    <div class="logo">
+      <img src="assets/images/logo.png" width="200px">
+    </div>
+    <ion-list style="background-color: transparent;">
+      <ion-item lines="none">
+        <ion-icon color="favorite1" name="person" slot="start"></ion-icon>
+        <ion-input required name="username" [(ngModel)]="username" #name="ngModel" type="text"
+          placeholder="enter your name" clearInput>
+        </ion-input>
+      </ion-item>
+      <ion-label color="light" *ngIf="name.invalid && (name.dirty||name.touched)">user name is required</ion-label>
+      <ion-item lines="none" class="ion-margin-top">
+        <ion-icon color="favorite1" name="at" slot="start"></ion-icon>
+        <ion-input required name="email" [(ngModel)]="email" #mail="ngModel" type="email" placeholder="enter your email"
+          clearInput>
+        </ion-input>
+      </ion-item>
+      <ion-label color="light" *ngIf="mail.invalid && (mail.dirty||mail.touched)">email is required</ion-label>
+      <ion-item lines="none" class="ion-margin-top">
+        <ion-icon color="favorite1" slot="start" name="key"></ion-icon>
+        <ion-input required minlength='5' name="password" [(ngModel)]="password" #pass="ngModel" type="password"
+          placeholder="enter your password" clearInput>
+        </ion-input>
+      </ion-item>
+      <div *ngIf="pass.invalid && (pass.dirty||pass.touched)">
+        <ion-label color="light" *ngIf="pass?.errors.required">password is required</ion-label>
+        <ion-label color="light" *ngIf="pass?.errors.minlength">password less than 5 characters</ion-label>
+      </div>
+
+      <div style="margin-top: 1em; background-color: #ffff; padding: 5px;">
+
+        <ion-button color="favorite5" expand="block" (click)="signup()" [disabled]="!registerForm.form.valid">
+          Sign Up
+        </ion-button>
+      </div>
+
+    </ion-list>
+  </form>
+</ion-content>

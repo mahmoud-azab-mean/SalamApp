@@ -1,0 +1,84 @@
+  .header-image {
+      height: 20vh;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+  }
+
+  .content-header {
+      padding: 15px;
+      background-color: var(--ion-color-favorite1);
+      position: relative !important;
+      height: 20vh;
+      width: 100%;
+
+      .circle-image {
+          max-width: 150px;
+          max-height: 150px;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          background-size: 100%;
+          margin-top: -65px;
+          margin-left: auto;
+          margin-right: auto;
+          overflow: hidden;
+          border-width: 143px;
+          border: solid 2px white;
+
+          img {
+              width: auto;
+              height: auto;
+              min-width: 100%;
+              min-height: 100%;
+              border-radius: 50%;
+              -webkit-border-radius: 50%;
+              -moz-border-radius: 50%;
+              background-size: cover;
+              background-repeat: no-repeat;
+          }
+      }
+
+      .info {
+          text-align: center;
+
+          .name {
+              position: relative;
+              top: -28px;
+              color: white;
+              font-size: 27px !important;
+              font-weight: bold;
+          }
+
+          .country {
+              position: relative;
+              top: -58px;
+              color: aliceblue;
+              font-size: 20px !important;
+          }
+      }
+  }
+
+  .segments {
+      background-color: #005f67;
+      margin-top: -2px;
+
+      ion-segment-button {
+          --color: rgba(255, 255, 255, 0.8) !important;
+          --color-checked: var(--ion-color-favorite4);
+          --indicator-color: var(--ion-color-warning);
+          --indicator-height: 3px;
+          --padding-start: 8px;
+          --padding-top: 3px;
+          font-weight: bold;
+          min-width: auto;
+      }
+  }
+
+  .segment-content {
+      ion-list {
+          padding: 0 2px;
+      }
+  }

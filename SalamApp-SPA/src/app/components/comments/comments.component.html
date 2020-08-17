@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<div class="container animated fadeIn" style="margin-top: 10px">
+  <div class="row">
+    <div class="col s12 m5 l4">
+      <app-side></app-side>
+    </div>
+    <div class="col s12 m7 l8">
+      <div class="row header">
+        <ul class="collection">
+          <li class="collection-item avatar">
+            <img
+              src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{post.user.photoVersion}}/{{post.user.photoId}}"
+              alt="" class="circle">
+            <span class="title">{{post?.username}}</span>
+            <p class="time">{{timeAgo(post?.created)}} </p>
+          </li>
+        </ul>
+        <div class="card">
+          <div class="card-image" *ngIf="post.photoId">
+            <img class="post-image"
+              src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{post.photoVersion}}/{{post.photoId}}"
+              alt="post image">
+          </div>
+          <p class="post-title" *ngIf="!post.photoId">{{post.post}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <form [formGroup]="commentForm" (ngSubmit)="addComment()">
+          <div class="row form-div">
+            <div class="input-field col s12">
+              <textarea formControlName="comment" class="materialize-textarea"></textarea>
+              <label for="textarea1">Write your comment here</label>
+              <div col s12>
+                <button [disabled]="!commentForm.valid" class="btn waves-effect post-btn"><i
+                    class="material-icons right">message</i>comment</button>
+              </div>
+
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="row comments">
+        <ul class="collection comment col s12 m10"
+          *ngFor="let comment of comments | paginate: { itemsPerPage: 3,currentPage: p }">
+          <li class="collection-item avatar">
+            <img class="circle" src="http://placeimg.com/100/100/nature">
+            <span class="title">{{comment.username}}</span>
+            <p class="time">{{timeAgo(comment.createdAt)}}</p>
+            <p class="post-comment">{{comment.comment}}</p>
+          </li>
+        </ul>
+        <div class="col s12 center-align">
+          <pagination-controls [hidden]="post?.comments==0"
+            class='marg marg1 ng-margin removecontent-next removecontent-previous my-button my-pagination my-pag '
+            (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

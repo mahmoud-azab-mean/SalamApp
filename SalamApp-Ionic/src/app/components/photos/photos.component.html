@@ -1,0 +1,5 @@
+<ion-slides pager>
+  <ion-slide *ngFor="let photo of photos">
+    <img src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{photo.photoVersion}}/{{photo.photoId}}" />
+  </ion-slide>
+</ion-slides>

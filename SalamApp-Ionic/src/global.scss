@@ -1,0 +1,240 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+// custom imports
+@import '../src/theme/variables.scss';
+
+// my favorite colors
+.ion-color-favorite1 {
+    --ion-color-base: var(--ion-color-favorite1);
+}
+
+.ion-color-favorite2 {
+    --ion-color-base: var(--ion-color-favorite2);
+}
+
+.ion-color-favorite3 {
+    --ion-color-base: var(--ion-color-favorite3);
+}
+
+.ion-color-favorite4 {
+    --ion-color-base: var(--ion-color-favorite4);
+}
+
+.ion-color-favorite5 {
+    --ion-color-base: var(--ion-color-favorite5);
+}
+
+// Padding
+[padding] {
+    padding: $content-padding !important;
+
+    .scroll-content {
+        padding: $content-padding !important;
+    }
+}
+
+[padding-right] {
+    padding-right: $content-padding !important;
+}
+
+[padding-left] {
+    padding-left: $content-padding !important;
+}
+
+[padding-horizontal] {
+    padding-right: $content-padding !important;
+    padding-left: $content-padding !important;
+}
+
+[padding-vertical] {
+    padding-top: $content-padding !important;
+    padding-bottom: $content-padding !important;
+}
+
+// margin
+[margin-left],
+[item-end],
+[item-right] {
+    margin: 0px 0px 0px $content-padding !important;
+}
+
+[margin-right],
+[item-start],
+[item-left] {
+    margin: 0px $content-padding 0px 0px !important;
+}
+
+[margin-horizontal] {
+    margin-right: $content-padding !important;
+    margin-left: $content-padding !important;
+}
+
+[margin-vertical] {
+    margin-top: $content-padding !important;
+    margin-bottom: $content-padding !important;
+}
+
+[no-margin] {
+    margin: 0px !important;
+}
+
+//Style of img Background
+.imgBg {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+// input font size,color and weight
+%inputFont {
+    color: $appForm_Item_Text_color;
+    font-size: $appForm_text_font_size;
+    font-weight: $appForm_text_font_weight;
+}
+
+[icon-only] {
+    ion-icon {
+        line-height: normal;
+    }
+}
+
+
+//appForm
+
+.appForm {
+    width: 100%;
+
+    background: var(--ion-color-favorite1);
+
+    .text-input {
+        transform: none !important;
+    }
+
+    ion-button {
+        font-size: 1.1rem;
+
+    }
+
+    ion-button:not(:first-child) {
+        margin-top: 0.5rem;
+    }
+
+}
+
+//global styles for android and ios
+
+.md,
+.ios {
+    ion-toolbar {
+        --background: var(--ion-color-favorite1);
+    }
+
+    ion-back-button {
+        color: white;
+        display: block;
+    }
+
+    .alert-css {
+        --background: var(--ion-color-favorite1);
+        color: var(--ion-color-light);
+
+        .alert-title {
+            color: var(--ion-color-warning);
+
+        }
+
+        button {
+            color: var(--ion-color-light);
+            background-color: var(--ion-color-favorite5);
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .alert-message {
+            color: var(--ion-color-light);
+            margin-top: 5px;
+        }
+
+    }
+
+    .loading-class {
+        --spinner-color: var(--ion-color-favorite1);
+        color: var(--ion-color-favorite1);
+        font-weight: bold;
+        --backdrop-opacity: 0.7;
+    }
+
+    .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet-active {
+        background-color: var(--ion-color-favorite5) !important;
+    }
+
+    .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+        border: solid 2px white;
+        background-color: #005f67;
+        margin: 0 3px;
+        height: 3vh;
+        width: 3vh;
+        position: relative;
+        top: 2vh;
+        opacity: 1 !important;
+    }
+
+    .popover {
+        --width: 40%;
+        --background: #005f67;
+
+        ion-item:not(:first-child) {
+            margin-top: -9px;
+            padding: 0;
+        }
+
+        .button {
+            min-width: 7em;
+            margin-left: 0;
+        }
+    }
+
+}
+
+.md {
+    ion-title {
+        text-align: center;
+        color: white;
+    }
+
+}
+
+.ios {
+    ion-title {
+        color: white;
+    }
+
+    .popover ion-item {
+        margin-left: -7px;
+    }
+}

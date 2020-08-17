@@ -1,0 +1,25 @@
+.tabs a {
+  color: #00838f;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.tabs .active {
+  background: inherit !important;
+}
+
+#top {
+  position: relative;
+  top: 1.5rem;
+}
+
+#streams {
+  position: relative;
+  top: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .streams-div {
+    width: 80%;
+  }
+}

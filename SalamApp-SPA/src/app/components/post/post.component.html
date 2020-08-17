@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card post-div">
+      <div class="card-content">
+        <form [formGroup]="postForm" novalidate (ngSubmit)="addPost()">
+          <div class="row form-div">
+            <div class="input-field col s12 post-content">
+              <textarea formControlName="post" class="materialize-textarea"></textarea>
+              <img class="post-photo" src="{{url}}" alt="">
+              <label for="textarea1">What's on your mind , {{user.username}}?</label>
+              <div class="row input-row">
+                <div class="col s6">
+                  <div class="file-field input-field">
+                    <div class="btn photo-btn">
+                      <span><i class="material-icons left">image</i> Photo</span>
+                      <input type="file" accept=".png,.jpg,.jpeg,.gif" id="upload" (change)="onSelectFile($event);">
+                    </div>
+                    <div class="file-path-wrapper">
+                      <input class="file-path validate" type="text">
+                    </div>
+                  </div>
+                </div>
+                <div class="col s6">
+                  <button class="btn waves-effect post-btn"><i class="material-icons right">message</i>Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="progress" *ngIf="showPreloader">
+            <div class="indeterminate"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

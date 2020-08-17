@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goBack()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>comments</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scrollbar="{{customStyle}}">
+  <ion-card class="card">
+    <ion-item lines="none">
+      <ion-avatar class="ion-no-margin" slot="start">
+        <img
+          src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{post?.user.photoVersion}}/{{post?.user.photoId}}" />
+      </ion-avatar>
+      <ion-label class="info">
+        <p class="title">{{post?.username}}</p>
+        <h6 class="time">{{timeAgo(post?.created)}} @ {{post?.user.country}}</h6>
+      </ion-label>
+    </ion-item>
+    <img *ngIf="post?.photoId"
+      src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{post?.photoVersion}}/{{post?.photoId}}" />
+
+    <ion-card-content *ngIf="post?.photoId" class="content">
+      {{post?.post}}
+    </ion-card-content>
+    <p class="post-title" *ngIf="!post?.photoId">{{post?.post}} </p>
+  </ion-card>
+
+  <div class="container">
+    <ion-textarea class="comment-content" auto-grow rows="1" [(ngModel)]="comment"
+      placeholder="write your comment here">
+    </ion-textarea>
+    <ion-row>
+      <ion-button class="comment-button" fill="clear" (click)="addComment()">
+        <ion-icon class="icon" color="favorite1" slot="icon-only" name="send"></ion-icon>
+      </ion-button>
+    </ion-row>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-list>
+        <ion-item lines="none" *ngFor="let comment of comments">
+          <ion-avatar class="post-avatar" slot="start">
+            <img class="post-img"
+              src="https://res.cloudinary.com/dxpxowuoc/image/upload/v{{comment?.userId.photoVersion}}/{{comment?.userId.photoId}}">
+          </ion-avatar>
+          <div class="post-info">
+            <h6 class="post-user">{{comment?.userId.username}}</h6>
+            <h6 class="post-time">{{timeAgo(comment?.createdAt)}}</h6>
+            <ion-text class="post-comment">{{comment?.comment}}</ion-text>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-row>
+  </ion-grid>
+</ion-content>

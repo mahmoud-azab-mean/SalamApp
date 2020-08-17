@@ -1,0 +1,78 @@
+.card-image {
+  height: 200px;
+  border: none;
+}
+
+.card-title {
+  margin-top: -35px;
+  font-family: merinda;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-action {
+  padding: 10px !important;
+  border: none;
+}
+
+.img-div {
+  display: block;
+  position: relative;
+}
+
+.responsive-img {
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 50% !important;
+  margin: 0 auto !important;
+  top: 15px !important;
+}
+
+.btn {
+  background-color: #00838f;
+  padding: 0 8px !important;
+}
+
+.btn:hover {
+  background-color: #00acc1;
+}
+
+.chat-icon {
+  font-size: 37px;
+  color: #00838f;
+}
+
+.chat-icon:hover {
+  color: #00acc1
+}
+
+.right {
+  margin-left: 0px !important;
+}
+
+.material-icons {
+  display: inline-flex;
+  vertical-align: top;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.online {
+  background-color: #4cd137;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 27px;
+  width: 27px;
+  border: 5px solid #eee;
+  border-radius: 50%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.location {
+  font-weight: bold;
+  margin-top: -14px;
+}
